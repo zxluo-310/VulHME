@@ -1,0 +1,13 @@
+[project]
+name = "vulhme"
+version = "0.1.0"
+description = "Implementation of VulHME"
+requires-python = ">=3.10"
+dependencies = [
+  "torch",
+  "scikit-learn",
+  "pyyaml",
+]
+
+[tool.setuptools.packages.find]
+include = ["vulhme*"]

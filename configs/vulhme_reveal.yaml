@@ -1,0 +1,32 @@
+data:
+  train: data/reveal/train.jsonl
+  valid: data/reveal/valid.jsonl
+  test: data/reveal/test.jsonl
+  class_counts: [16511, 1664]
+
+model:
+  input_dim: 100
+  hidden_dim: 200
+  num_classes: 2
+  num_relations: 8
+  local_layers: 4
+  global_layers: 1
+  global_heads: 10
+  dropout: 0.1
+  global_scale_init: 0.1
+
+mace:
+  lambda_agg: 0.8
+  focal_gamma: 2.0
+  ldam_max_m: 0.5
+  ldam_scale: 30.0
+  class_balance_beta: 0.9999
+
+train:
+  batch_size: 64
+  epochs: 100
+  lr: 0.0002
+  weight_decay: 0.000001
+  early_stop_patience: 10
+  cuda: true
+  output_dir: runs/reveal
