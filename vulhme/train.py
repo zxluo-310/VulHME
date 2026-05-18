@@ -88,11 +88,10 @@ def train(config: dict) -> None:
             total_loss += float(loss_output.total.detach().cpu())
 
         valid_metrics = evaluate(model, loaders["valid"], device)
-        test_metrics = evaluate(model, loaders["test"], device)
         train_loss = total_loss / max(len(loaders["train"]), 1)
         print(
             f"epoch={epoch:03d} loss={train_loss:.4f} "
-            f"valid_f1={valid_metrics['f1']:.2f} test_f1={test_metrics['f1']:.2f}"
+            f"valid_f1={valid_metrics['f1']:.2f}"
         )
 
         valid_loss_proxy = -valid_metrics["f1"]
